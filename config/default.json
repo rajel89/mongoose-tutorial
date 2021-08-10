@@ -1,2 +1,2 @@
 {
-    "mongoURI": "mongodb+srv://<new-user-01>:<YSx371pVxKIbHNnb>@<clustername>.6si6q.mongodb.net/<dbname>?retryWrites=true&w=majority"}
+    "mongoURI": "mongodb+srv://ztaylor:cvrzixLOPDTaXBOp@cluster0.0865e.mongodb.net/flashcards?retryWrites=true&w=majority"}
