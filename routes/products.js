@@ -26,11 +26,11 @@ router.post("/", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
   try {
-    const { error } = validation(req.body);
-    if (error) return res.status(400).sent(error);
+    const { error } = validate(req.body);
+    if (error) return res.status(400).send(error);
 
     const product = await Product.findByIdAndUpdate(
-      req.params.id,
+req.params.id,
       {
         question: req.body.question,
         answer: req.body.answer,
@@ -53,7 +53,7 @@ router.put("/:id", async (req, res) => {
 router.get("/", async (req, res) => {
   try {
     const products = await Product.find();
-    return res.sent(products);
+    return res.send(products);
   } catch (ex) {
     return res.status(500).send(`Internal Server Error: ${ex}`);
   }
@@ -65,33 +65,7 @@ router.get("/:id", async (req, res) => {
     if (!product)
       return res
         .status(400)
-        .sent(`The product with id "${req.paramsid}" dos not exist.`);
-    return res.send(product);
-  } catch (ex) {
-    return res.status(500).send(`Internal Server Error: ${ex}`);
-  }
-});
-
-router.put("/:id", async (req, res) => {
-  try {
-    const { error } = validation(req.body);
-    if (error) return res.status(400).sent(error);
-
-    const product = await Product.findByIdAndUpdate(
-      req.params.id,
-      {
-        question: req.body.question,
-        answer: req.body.answer,
-        // category: req.body.category,
-        // price: price.body.price,
-      },
-      { new: true }
-    );
-    if (!product)
-      return res
-        .status(400)
-        .send(`The product with id "${req.params.id}" does not exist.`);
-    await product.save();
+        .send(`The product with id "${req.paramsid}" dos not exist.`);
     return res.send(product);
   } catch (ex) {
     return res.status(500).send(`Internal Server Error: ${ex}`);
@@ -101,10 +75,11 @@ router.put("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
   try {
     const product = await Product.findByIdAndRemove(req.params.id);
-    if (!Product)
+    if (!product)
       return res
         .status(400)
         .send(`The product with id "${req.params.id}" doesnot exist.`);
+        return res.send(product);
   } catch (ex) {
     return res.status(500).send(`Internal Server Error: ${ex}`);
   }

@@ -68,7 +68,7 @@ router.delete("/:userId/shoppingcart/:productId", async (req, res) => {
       return res
         .status(400)
         .send(
-          `The product with id "${req.params.productId}" does not in the users shopping cart.`
+          `The product with id "${req.params.productId}" does not exist in the users shopping cart.`
         );
     product = await product.remove();
     await user.save();

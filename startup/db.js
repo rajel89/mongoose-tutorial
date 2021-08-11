@@ -4,8 +4,8 @@ const config = require("config");
 function connectDB() {
   mongoose
     .connect(config.get("mongoURI"), {
-      userNameUrlParser: true,
-      userUnifiedTopology: true,
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
     })
     .then(() => console.log("Connected to MongoDB..."))
     .catch((err) => {
