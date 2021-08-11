@@ -1,3 +1,2 @@
 {
-    // "mongoURI": "mongodb+srv://ztaylor:cvrzixLOPDTaXBOp@cluster0.0865e.mongodb.net/flashcards?retryWrites=true&w=majority"}
-    "mongoURI": "mongodb+srv://new-user-01:YSx371pVxKIbHNnb@cluster0.2jmzi.mongodb.net/sample_airbnb?retryWrites=true&w=majority"}
+    "mongoURI": "mongodb+srv://ztaylor:cvrzixLOPDTaXBOp@cluster0.0865e.mongodb.net/flashcards?retryWrites=true&w=majority"}

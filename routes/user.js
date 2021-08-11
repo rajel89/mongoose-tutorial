@@ -11,7 +11,7 @@ router.post("/:userId/shoppingcast/:productId", async (req, res) => {
         .status(400)
         .send(`The user with id "${req.params.userId}" dose not exist.`);
 
-    const product = await Produc.Produc.findById(req.params.productId);
+    const product = await Product.findById(req.params.productId);
     if (!product)
       return res
         .status(400)
@@ -41,11 +41,14 @@ router.put("/:userId/shoppingcart/:productId", async (req, res) => {
         .send(
           `The product with id "${req.params.productId}" does not in the users shopping cart.`
         );
-    product.name = req.body.name;
-    product.description = req.body.description;
-    product.category = req.body.category;
-    product.price = req.body.price;
-    product.dateModified = Date.now();
+    product.question = req.body.question;
+    product.answer = req.body.answer;
+
+    // product.name = req.body.name;
+    // product.description = req.body.description;
+    // product.category = req.body.category;
+    // product.price = req.body.price;
+    // product.dateModified = Date.now();
     await user.save();
     return res.send(product);
   } catch (ex) {
